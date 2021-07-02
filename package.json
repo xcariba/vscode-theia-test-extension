@@ -1,0 +1,61 @@
+{
+    "name": "vscode-theia-test-extension",
+    "displayName": "VSCode Test Extension",
+    "description": "Extension for testing Theia APIs",
+    "version": "0.0.1",
+    "publisher": "xcariba",
+    "license": "EPL-2.0",
+    "private": true,
+    "repository": {
+        "private": true
+    },
+    "engines": {
+        "vscode": "^1.55.0"
+    },
+    "categories": [
+        "Other"
+    ],
+    "activationEvents": [
+        "*"
+    ],
+    "main": "out/extension",
+    "contributes": {
+        "commands": [
+            {
+                "command": "vscode.test.hello",
+                "title": "VSCode Test Command"
+            }
+        ],
+        "viewsContainers": {
+            "activitybar": [
+                {
+                    "id": "testContainer",
+                    "icon": "images/icon.svg",
+                    "title": "Test Container"
+                }
+            ]
+        },
+        "views": {
+            "testContainer": [
+                {
+                    "id": "testTreeView",
+                    "name": "Test Tree View",
+                    "icon": "images/icon.svg"
+                }
+            ]
+        }
+    },
+    "devDependencies": {
+        "@types/vscode": "^1.55.0",
+        "typescript": "4.1.3",
+        "vsce": "^1.95.0"
+    },
+    "dependencies": {},
+    "scripts": {
+        "vscode:prepublish": "npm run compile",
+        "compile": "tsc -p ./",
+        "watch": "tsc -watch -p ./",
+        "lint": "eslint . --ext .ts,.tsx",
+        "package": "vsce package"
+    }
+}
